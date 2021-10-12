@@ -4,9 +4,17 @@ public class Radio {
 
     private int currentStation;
     private int currentSoundVolume;
+    private int numberOfStations = 10;
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+    }
+
+    public Radio() {
+    }
 
     public int increaseCurrentSoundVolume() {
-        if (currentSoundVolume < 10) {
+        if (currentSoundVolume < 100) {
             currentSoundVolume = currentSoundVolume + 1;
         }
         return currentSoundVolume;
@@ -20,11 +28,11 @@ public class Radio {
     }
 
     public int increaseCurrentStation() {
-        if (currentStation < 9) {
+        if (currentStation < numberOfStations - 1) {
             currentStation = currentStation + 1;
             return currentStation;
         }
-        if (currentStation == 9) {
+        if (currentStation == numberOfStations - 1) {
             currentStation = 0;
         }
         return currentStation;
@@ -37,7 +45,7 @@ public class Radio {
         }
 
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = numberOfStations - 1;
         }
         return currentStation;
     }
@@ -49,7 +57,7 @@ public class Radio {
 
     public void setCurrentStation(int newCurrentStation) {
 
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > numberOfStations - 1) {
             return;
         }
         if (newCurrentStation < 0) {
@@ -62,7 +70,7 @@ public class Radio {
 
     public void setCurrentSoundVolume(int newCurrentSoundVolume) {
 
-        if (newCurrentSoundVolume > 10) {
+        if (newCurrentSoundVolume > 100) {
             return;
         }
         if (newCurrentSoundVolume < 0) {
@@ -72,6 +80,7 @@ public class Radio {
         this.currentSoundVolume = newCurrentSoundVolume;
 
     }
+
     //____________________для покрытия______________________
     public void setCurrentStationForCoverage(int newCurrentStation) {
 
